@@ -9,14 +9,24 @@ import 'glightbox/dist/css/glightbox.css';
 
 
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+import { Cinzel_Decorative, Cormorant_Garamond  } from "next/font/google";
 import "./globals.css";
+import Header from './components/Header';
+import BackToTopBtn from './components/BackToTopBtn';
+import Footer from './sections/Footer';
 
-const playfair = Playfair_Display({
+const cinzel = Cinzel_Decorative ({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-playfair-display',
-  weight: ['400','500','600','700','800','900'],
+  variable: '--font-cinzel-decorative',
+  weight: ['400', '700', '900'],
+});
+
+const cormorant = Cormorant_Garamond ({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-cormorant-garamond',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -26,8 +36,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${playfair.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${cinzel.variable} ${cormorant.variable}`}>
+      <body>
+        <Header/>
+        {children}
+        <Footer/>
+        <BackToTopBtn/>
+      </body>
     </html>
   );
 }

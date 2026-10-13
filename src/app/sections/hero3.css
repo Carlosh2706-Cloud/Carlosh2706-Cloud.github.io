@@ -1,0 +1,99 @@
+/*hero3 Section*/
+#hero3 {
+    width: 100%;
+    min-height: 100vh;
+    background: url('../../../public/assets/images/gallery/gallery_4.jpeg') top center;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#hero3:before{
+    content: '';
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#hero3 .container {
+    position: relative;
+    max-width: 850px;
+    padding: 55px 45px;
+    background-color: var(--accent-color);
+    border: 1px solid rgba(205, 164, 94, 0.5);
+    color: #eee;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+/* Paragraph text */
+#hero3 p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+
+/* Optional gold divider */
+#hero3 .hero-divider {
+    display: block;
+    width: 50%;
+    height: 1px;
+    background: var(--primary-color);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+
+@media (max-width: 992px) {
+    #hero3 .container {
+        padding-top: 98px;
+    }
+}
+
+#hero3 h2 span {
+    color: black;
+}
+
+#hero3 h2 {
+    color: #eee;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+@media (min-width: 1024px) {
+    #hero3 {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-height: 500px) {
+    #hero3 {
+        height: auto;
+    }
+
+    #hero3 .container {
+        padding-top: 130px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero3 h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #hero3 h2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}

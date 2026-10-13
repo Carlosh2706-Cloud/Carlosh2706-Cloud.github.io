@@ -1,0 +1,50 @@
+/*General*/
+:root {
+  --primary-color: #FFF0DB;
+  --secondary-color: #eed9c4;
+  --accent-color: #D9B99B;
+  /* --background-color:;
+  --text-color:;  */
+  --font-heading: var(--font-cinzel-decorative);
+}
+
+body {
+  font-family: var(--font-cormorant-garamond), serif;
+  background-color: #000;
+  color: #fff;
+}
+
+a {
+  color: #cda45e;
+  text-decoration: none;
+  /* font-family: var(--font-cinzel-decorative); */
+}
+
+a:hover {
+  color: #d9ba85;
+  text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cinzel-decorative), serif;
+}
+
+h1 a {
+   font-family: var(--font-cinzel-decorative);
+}
+/*Sections General*/
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: #1a1814;
+}
+

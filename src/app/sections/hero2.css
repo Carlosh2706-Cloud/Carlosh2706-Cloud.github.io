@@ -1,0 +1,40 @@
+/*Hero Section*/
+#hero2 {
+    min-height: 400px;
+    height: auto;
+    background: transparent;
+    padding: 60px 20px;
+}
+
+
+#hero2 .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    #hero2 .container {
+        padding-top: 98px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    #hero2 {
+        background-attachment: fixed;
+    }
+}
+
+
+@media (max-height: 500px) {
+    #hero2 {
+        height: auto;
+    }
+
+    #hero2 .container {
+        padding-top: 130px;
+        padding-bottom: 60px;
+    }
+}

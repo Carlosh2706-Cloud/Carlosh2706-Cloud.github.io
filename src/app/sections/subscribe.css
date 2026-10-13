@@ -1,0 +1,238 @@
+/* ===========================
+   Subscribe Section
+=========================== */
+
+#subscribe {
+  width: 100%;
+  min-height: 70vh;
+  background: url("../../../public/assets/images/fancy_eating.jpg") top center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+#subscribe:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* inset: 0;
+  z-index: 0; */
+}
+
+#subscribe .container {
+  position: relative;
+  z-index: 1;
+  padding-top: 110px;
+}
+
+/* Layout */
+.subscribe-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.subscribe-info {
+  flex: 1;
+  min-width: 0;
+  padding-top: 20px;
+}
+
+.subscribe-form-wrapper {
+  flex: 1;
+  min-width: 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.subscribe-form-wrapper h3 {
+  margin-bottom: 25px;
+}
+
+/* Contact Information */
+.subscribe-info p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.subscribe-info i {
+  font-size: 20px;
+  color: #cda45e;
+}
+
+.subscribe-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.subscribe-info a:hover {
+  text-decoration: underline;
+}
+
+/* Form Layout */
+.subscribe_form_layout .subscribe-form {
+  width: 100%;
+}
+
+.subscribe_form_layout .subscribe-form .subscribe-fields {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.subscribe_form_layout .subscribe-form .form-group {
+  padding-bottom: 8px;
+}
+
+.subscribe_form_layout .subscribe-form .subscribe-fields .form-group {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 0;
+}
+
+/* Inputs */
+.subscribe_form_layout .subscribe-form input,
+.subscribe_form_layout .subscribe-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: #0c0b09;
+  border-color: #625b4b;
+  color: #fff;
+}
+
+.subscribe_form_layout .subscribe-form input {
+  height: 44px;
+}
+
+.subscribe_form_layout .subscribe-form .subscribe-fields input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.subscribe_form_layout .subscribe-form textarea {
+  padding: 10px 12px;
+}
+
+.subscribe_form_layout .subscribe-form input:focus,
+.subscribe_form_layout .subscribe-form textarea:focus {
+  color: #cda45e;
+}
+
+.subscribe_form_layout .subscribe-form input::placeholder,
+.subscribe_form_layout .subscribe-form textarea::placeholder {
+  color: #a49b89;
+}
+
+.subscribe_form_layout .subscribe-form input[type="date"],
+.subscribe_form_layout .subscribe-form input[type="time"] {
+  color: #a49b89;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* Submit Button */
+.subscribe_form_layout .subscribe-form button[type="submit"] {
+  flex-shrink: 0;
+  align-self: center;
+  white-space: nowrap;
+  background: #cda45e;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 0px;
+}
+
+.subscribe_form_layout .subscribe-form button[type="submit"]:hover {
+  background: #d3af71;
+}
+
+/* Form Feedback */
+.subscribe_form_layout .subscribe-form .error-group {
+  color: #fff;
+  background: #cda45e;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.subscribe_form_layout .subscribe-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.subscribe_form_layout .subscribe-form .sent-message {
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.subscribe_form_layout .subscribe-form .loading {
+  text-align: center;
+  padding: 15px;
+}
+
+.subscribe_form_layout .subscribe-form .loading::before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #cda45e;
+  border-top-color: #1a1814;
+  animation: animate-loading 1s linear infinite;
+}
+
+@media (min-width: 1024px) {
+    #subscribe {
+        background-attachment: fixed;
+    }
+}
+
+/* Mobile and Tablet */
+@media (max-width: 768px) {
+  .subscribe-layout {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .subscribe-info,
+  .subscribe-form-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .subscribe-info {
+    padding-top: 0;
+  }
+
+  .subscribe_form_layout .subscribe-form .subscribe-fields {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .subscribe_form_layout .subscribe-form .subscribe-fields .form-group {
+    width: 100%;
+  }
+
+  .subscribe_form_layout
+    .subscribe-form
+    .subscribe-fields
+    button[type="submit"] {
+    width: 100%;
+  }
+}

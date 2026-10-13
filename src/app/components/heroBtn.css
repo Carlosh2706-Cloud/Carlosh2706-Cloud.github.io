@@ -1,0 +1,19 @@
+#hero .btn-hero, #hero2 .btn-hero{
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: 0.3s;
+    line-height: 1;
+    color: white;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+}
+
+#hero .btn-hero:hover, #hero2 .btn-hero:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
