@@ -7,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 // import glightbox
 import 'glightbox/dist/css/glightbox.css';
 
+// import AOS
+import 'aos/dist/aos.css'
+import AOSInit from './components/AOSInit'
 
 import type { Metadata } from "next";
 import { Cinzel_Decorative, Cormorant_Garamond  } from "next/font/google";
@@ -38,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${cinzel.variable} ${cormorant.variable}`}>
       <body>
+        <AOSInit />
         <Header/>
         {children}
         <Footer/>

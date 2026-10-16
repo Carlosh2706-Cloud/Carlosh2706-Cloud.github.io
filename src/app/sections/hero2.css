@@ -1,40 +1,97 @@
-/*Hero Section*/
+/* Hero 2 Section */
 #hero2 {
+    width: 100%;
     min-height: 400px;
+    min-height: 100vh;  /* Fallback */
+    min-height: 100svh; /* Better for mobile browsers */
     height: auto;
     background: transparent;
-    padding: 60px 20px;
+    padding: clamp(40px, 6vw, 80px) 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
+/* Keep content within a comfortable width */
+#hero2 .container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
 
+/* Buttons */
 #hero2 .btns {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
 }
 
+/* Tablet */
 @media (max-width: 992px) {
-    #hero2 .container {
-        padding-top: 98px;
+    #hero2 {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 50px 24px;
     }
 }
 
-
-@media (min-width: 1024px) {
+/* Mobile */
+@media (max-width: 768px) {
     #hero2 {
-        background-attachment: fixed;
-    }
-}
-
-
-@media (max-height: 500px) {
-    #hero2 {
-        height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: 40px 18px;
     }
 
     #hero2 .container {
-        padding-top: 130px;
-        padding-bottom: 60px;
+        padding: 0;
+    }
+
+    #hero2 .btns {
+        gap: 10px;
+        margin-top: 20px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    #hero2 {
+        padding: 32px 16px;
+    }
+
+    #hero2 .btns {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin: 20px auto 0;
+    }
+
+    #hero2 .btns > * {
+        max-width: 100%;
+    }
+}
+
+/* Short screens in landscape */
+@media (max-height: 500px) and (max-width: 992px) {
+    #hero2 {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #hero2 * {
+        scroll-behavior: auto;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

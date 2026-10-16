@@ -1,210 +1,188 @@
 /*Navigation Menu*/
 .navbar {
-    padding: 0;
+  padding: 0;
 }
 
 .navbar ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
 
 .navbar li {
-    position: relative;
+  position: relative;
 }
 
 .navbar a,
 .navbar a:focus {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0 10px 30px;
-    color: #fff;
-    white-space: nowrap;
-    transition: 0.3s;
-    font-size: 15px;
-    font-weight: 300;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  color: #fff;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 15px;
+  font-weight: 300;
+  cursor: pointer;
 }
 
 .navbar a i,
 .navbar a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
 }
 
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-    color: #d9ba85;
+  color: #d9ba85;
 }
 
 .navbar .dropdown ul {
-    display: block;
-    position: absolute;
-    left: 14px;
-    top: calc(100% + 30px);
-    margin: 0;
-    padding: 10px 0;
-    z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-    transition: 0.3s;
-    border-radius: 4px;
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
 }
 
 .navbar .dropdown ul li {
-    min-width: 200px;
+  min-width: 200px;
 }
 
 .navbar .dropdown ul a {
-    padding: 10px 20px;
-    color: #444444;
+  padding: 10px 20px;
+  color: #444444;
 }
 
 .navbar .dropdown ul a i {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 .navbar .dropdown:hover > ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
 }
 
 .navbar .dropdown .dropdown ul {
-    top: 0;
-    left: calc(100% - 30px);
-    visibility: hidden;
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
 }
 
 .navbar .dropdown .dropdown:hover > ul {
-    opacity: 1;
-    top: 0;
-    left: 100%;
-    visibility: visible;
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
 }
 
 @media (max-width: 1366px) {
-    .navbar .dropdown .dropdown ul {
-        left: -90%;
-    }
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
 
-    .navbar .dropdown .dropdown:hover > ul {
-        left: -100%;
-    }
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
 }
 
-/*mobile navigation*/
+/* Mobile navigation toggle */
 .mobile-nav-toggle {
-    color: #fff;
-    font-size: 28px;
-    cursor: pointer;
-    display: none;
-    line-height: 0;
-    transition: 0.5s;
+  display: none;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-@media (max-width:991px){
-    .mobile-nav-toggle{
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
     display: block;
-    }
+  }
 
-    .navbar ul {
-        display: none;
-    }
-}
+  /* Hide the links until the menu is opened */
+  .navbar ul {
+    display: none;
+  }
 
-.navbar-mobile {
+  /* Open mobile menu */
+  .navbar-mobile {
     position: fixed;
-    overflow: hidden;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.9);
-    transition: 0.3s;
-    z-index: 999;
-}
-
-.navbar-mobile .mobile-nav-toggle {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
-
-.navbar-mobile ul {
-    display: block;
-    position: absolute;
-    top: 55px;
-    right: 15px;
-    bottom: 15px;
-    left: 15px;
-    padding: 10px 0;
-    border-radius: 6px;
-    background-color: #ffffff;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    padding: 80px 20px 24px;
     overflow-y: auto;
-    transition: 0.3s;
-}
+    background: rgba(0, 0, 0, 0.94);
+    z-index: 1000;
+  }
 
-.navbar-mobile a {
-    padding: 10px 20px;
-    font-size: 15px;
-    color: #1a1814;
-}
+  .navbar-mobile .mobile-nav-toggle {
+    position: fixed;
+    top: 17px;
+    right: 20px;
+  }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover > a {
-    color: var(--accent-color);
-}
+  .navbar-mobile ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 12px;
+    list-style: none;
+    background: #1a1814;
+    border: 1px solid #37332a;
+  }
 
-.navbar-mobile .getstarted {
-    margin: 15px;
-}
+  .navbar-mobile li {
+    width: 100%;
+  }
 
-.navbar-mobile .dropdown ul {
-    position: static;
-    display: none;
-    margin: 10px 20px;
-    padding: 10px 0;
-    z-index: 99;
-    opacity: 1;
-    visibility: visible;
-    background: #fff;
-    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    display: flex;
+    width: 100%;
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 16px;
+    white-space: normal;
+    text-decoration: none;
+  }
 
-.navbar-mobile .dropdown ul li {
-    min-width: 200px;
-}
-
-.navbar-mobile .dropdown ul a {
-    padding: 10px 20px;
-}
-
-.navbar-mobile .dropdown ul a i {
-    font-size: 12px;
-}
-
-.navbar-mobile .dropdown ul a:hover,
-.navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover > a {
-    color: var(--accent-color);
-}
-
-.navbar-mobile .dropdown > .dropdown_active {
-    display: block;
+  .navbar-mobile a:hover,
+  .navbar-mobile a.active,
+  .navbar-mobile li:hover > a {
+    color: #d9ba85;
+  }
 }

@@ -51,10 +51,6 @@ export default function Hero3() {
               opportunity to show up as you are, move at your own pace, and
               explore what feels right for you.
             </p>
-
-            {/* <h1>
-            and connect through <span>horses</span>
-            </h1> */}
           </div>
         </div>
       </div>

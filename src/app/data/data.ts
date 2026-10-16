@@ -11,20 +11,20 @@ export const navs = [
         target: 'about',
         active: false,
     },
+    // {
+    //     id: 3,
+    //     name: 'Gallery',
+    //     target: 'gallery',
+    //     active: false,
+    // },
     {
         id: 3,
-        name: 'Gallery',
-        target: 'gallery',
-        active: false,
-    },
-    {
-        id: 4,
         name: 'Sessions',
         target: 'sessions',
         active: false,
     },
     {
-        id: 5,
+        id: 4,
         name: 'Contact',
         target: 'contact',
         active: false,

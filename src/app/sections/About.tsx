@@ -1,5 +1,5 @@
 import React from "react";
-import aboutImage from "../../../public/assets/images/hero_background.jpeg";
+import aboutImage from "../../../public/assets/images/gallery/gallery_1.jpeg";
 import "./about.css";
 import Image from "next/image";
 import Link from "next/link";

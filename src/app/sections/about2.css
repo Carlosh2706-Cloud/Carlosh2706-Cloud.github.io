@@ -1,126 +1,220 @@
-/* about */
-.about {
-    background: url('../../../public/assets/images/about_background.jpg') center center;
-    background-size: cover;
+
+/* About 2 Section */
+.about2 {
     position: relative;
-    padding: 80px 0;
+    padding: clamp(48px, 7vw, 80px) 0;
+    background-color: var(--background-color);
+    overflow: hidden;
 }
 
-.about::before {
+/* Optional overlay */
+.about2::before {
     content: '';
-    background: rgba(0,0,0,0.90);
     position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
+    pointer-events: none;
 }
 
-.about .about-img {
+/* Image wrapper */
+.about2 .about-img {
     position: relative;
-    transition: 0.5s;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    transition: transform 0.4s ease;
 }
 
-.about .about-img img {
-    max-width: 100%;
+/* Image */
+.about2 .about-img img {
+    display: block;
+    width: 100%;
     height: auto;
-    border: 4px solid rgba(255,255,255,0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    /* border-radius: 4px; */
     position: relative;
+    z-index: 0;
 }
 
-.about .about-img::before {
+/* Decorative upper-left corner */
+.about2 .about-img::before {
+    content: '';
     position: absolute;
-    left: 20px;
-    top: 20px;
-    width: 60px;
-    height: 60px;
+    left: -10px;
+    top: -10px;
+    width: clamp(35px, 5vw, 60px);
+    height: clamp(35px, 5vw, 60px);
+    border-left: 4px solid var(--accent-color);
+    border-top: 4px solid var(--accent-color);
     z-index: 1;
-    content: '';
-    border-left: 5px solid var(--accent-color);
-    border-top: 5px solid var(--accent-color);
-    transition: 0.5s;
+    pointer-events: none;
+    transition: left 0.4s ease, top 0.4s ease;
 }
 
-.about .about-img::after {
+/* Decorative lower-right corner */
+.about2 .about-img::after {
+    content: '';
     position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    z-index: 2;
-    content: '';
-    border-right: 5px solid var(--accent-color);
-    border-bottom: 5px solid var(--accent-color);
-    transition: 0.5s;
+    right: -10px;
+    bottom: -10px;
+    width: clamp(35px, 5vw, 60px);
+    height: clamp(35px, 5vw, 60px);
+    border-right: 4px solid var(--accent-color);
+    border-bottom: 4px solid var(--accent-color);
+    z-index: 1;
+    pointer-events: none;
+    transition: right 0.4s ease, bottom 0.4s ease;
 }
 
-.about .about-img:hover {
-    transform: scale(1.03);
+/* Desktop hover effects */
+@media (hover: hover) and (pointer: fine) {
+    .about2 .about-img:hover {
+        transform: scale(1.015);
+    }
+
+    .about2 .about-img:hover::before {
+        left: -5px;
+        top: -5px;
+    }
+
+    .about2 .about-img:hover::after {
+        right: -5px;
+        bottom: -5px;
+    }
 }
 
-.about .about-img:hover::before {
-    left: 10px;
-    top:10px;
-}
-
-.about .about-img:hover::after {
-    right: 10px;
-    bottom: 10px;
-}
-
-.about .content {
+/* Content */
+.about2 .content {
     position: relative;
+    z-index: 1;
+    color: var(--text-color, #fff);
 }
 
-.about .content h3 {
+.about2 .content h3 {
+    margin-bottom: 20px;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
     font-weight: 600;
-    font-size: 26px;
+    color: var(--primary-color);
 }
 
-.about .content ul {
+/* Paragraphs */
+.about2 .content p {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* Lists */
+.about2 .content ul {
     list-style: none;
+    margin: 20px 0;
     padding: 0;
 }
 
-.about .content ul li {
-    padding-bottom: 10px;
+.about2 .content ul li {
+    position: relative;
+    padding: 0 0 12px 26px;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.6;
+    color: var(--text-color, #fff);
 }
 
-.about .content ul li {
-    font-size: 20px;
-    padding-right: 4px;
+/* Accent bullet */
+.about2 .content ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
     color: var(--accent-color);
+    font-weight: 700;
 }
 
-.about .content p:last-child {
+/* Last paragraph */
+.about2 .content p:last-child {
     margin-bottom: 0;
 }
 
+/* Learn More link */
 .learn-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
-  text-decoration: none;
-  padding-bottom: 5px;
-  border-bottom: 1px solid currentColor;
-  transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding-bottom: 5px;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .learn-more i {
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .learn-more:hover {
-  color: #c8b58c;
+    color: var(--accent-color);
 }
 
 .learn-more:hover i {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
-@media (min-width: 1024px) {
-    .about {
-        background-attachment: fixed;
+/* Tablet */
+@media (max-width: 991px) {
+    .about2 {
+        padding: 55px 0;
+    }
+
+    .about2 .about-img {
+        max-width: 650px;
+        margin-bottom: 32px;
+    }
+
+    .about2 .content h3 {
+        margin-bottom: 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .about2 {
+        padding: 42px 0;
+    }
+
+    .about2 .about-img {
+        width: calc(100% - 16px);
+        margin-bottom: 28px;
+    }
+
+    .about2 .about-img img {
+        border-width: 2px;
+    }
+
+    .about2 .about-img::before,
+    .about2 .about-img::after {
+        border-width: 3px;
+    }
+
+    .about2 .content p {
+        line-height: 1.7;
+    }
+
+    .about2 .content ul li {
+        padding-bottom: 10px;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .about2 .about-img,
+    .about2 .about-img::before,
+    .about2 .about-img::after,
+    .learn-more,
+    .learn-more i {
+        transition: none;
+    }
+
+    .about2 .about-img:hover {
+        transform: none;
     }
 }

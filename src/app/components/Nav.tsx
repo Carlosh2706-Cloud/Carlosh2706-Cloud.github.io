@@ -1,103 +1,140 @@
-import React, {useState, useEffect} from 'react';
-import {useRouter, usePathname} from 'next/navigation';
-import {navs} from '../data/data';
-import './nav.css';
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { navs } from "../data/data";
+import "./nav.css";
 
 export default function Nav() {
+  const pathname = usePathname();
+  const router = useRouter();
 
-const pathname = usePathname();
-const router = useRouter();
-const [navList, setNavList] = useState(navs);
-const [open, setOpen] = useState(false);
-const [scroll, setScroll] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [scroll, setScroll] = useState(0);
+  const [activeTarget, setActiveTarget] = useState<string | null>(null);
 
-useEffect(()=> {
-    window.addEventListener('scroll', () => {
-        setScroll(window.scrollY);
-    });
-    return () => {
-        window.removeEventListener('scroll', () => {
-            setScroll(window.scrollY);
-        });
+  // Track scrolling without recreating the listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY);
     };
-}, [scroll]);
 
+    handleScroll();
 
-const handleToggleMenu = ()=> {
-    setOpen(!open);
-};
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
-const handleScrollTo = (section: string) => {
-    let header: HTMLElement = document.querySelector('#header')!;
-    let offset = header.offsetHeight;
-    let targetEl: HTMLElement = document.querySelector('#' + section)!;
-    if (pathname === '/') {
-        let elementPosition = targetEl.offsetTop;
-        window.scrollTo({
-            top: elementPosition - offset,
-            behavior: 'smooth',
-        });
-    } else {
-        router.push(`/#${section}`)
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Update the active navigation link
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveTarget(null);
+      return;
     }
-};
 
+    const updateActiveLink = () => {
+      const header = document.querySelector("#header");
+      const offset = header?.getBoundingClientRect().height ?? 0;
+      const position = window.scrollY + offset + 200;
 
-const handleNavActive = () => {
-    let position = scroll + 200;
-    //nav add and remove class active
-    setNavList(
-        navList.map(nav => {
-            nav.active = false;
-            let targetSection: HTMLElement = document.querySelector(
-                '#' + nav.target
-            )!;
-            
-            if (
-                targetSection && 
-                position >= targetSection.offsetTop &&
-                position <= targetSection.offsetTop + targetSection.offsetHeight
-            ) {
-                nav.active = true;
-            }
-            return nav;
-        })
-    );
+      let currentTarget: string | null = null;
 
-};
+      navs.forEach((nav) => {
+        const section = document.getElementById(nav.target);
 
-    useEffect(() => {
-        handleNavActive();
-    }, [scroll]);
-    
+        if (
+          section &&
+          position >= section.offsetTop &&
+          position < section.offsetTop + section.offsetHeight
+        ) {
+          currentTarget = nav.target;
+        }
+      });
+
+      setActiveTarget(currentTarget);
+    };
+
+    updateActiveLink();
+
+    window.addEventListener("scroll", updateActiveLink, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", updateActiveLink);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveLink);
+      window.removeEventListener("resize", updateActiveLink);
+    };
+  }, [pathname, scroll]);
+
+  // Scroll to a section or navigate back to the homepage
+  const handleScrollTo = (section: string) => {
+    setOpen(false);
+
+    if (pathname !== "/") {
+      router.push(`/#${section}`);
+      return;
+    }
+
+    const target = document.getElementById(section);
+
+    if (!target) {
+      console.warn(`Navigation section not found: #${section}`);
+      return;
+    }
+
+    const header = document.querySelector("#header");
+    const offset = header?.getBoundingClientRect().height ?? 0;
+
+    const targetPosition =
+      target.getBoundingClientRect().top + window.scrollY - offset;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <nav 
-    id="navbar"
-    className={`navbar order-last order-lg-0 ${ 
-        open ? 'navbar-mobile' : undefined
-    }`}>
-
-    <ul>
-        {navList.map(nav => (
-            <li key={nav.id}>
-                <a
-                className={`nav-link scrollto ${
-                    nav.active ? 'active' : undefined
-                }`}
-                onClick={() => handleScrollTo(nav.target)}
-                >
-                    {nav.name === 'Home' ? 'Home' : (nav.name)}
-                </a>
-
-            </li>
+    <nav
+      id="navbar"
+      className={`navbar order-last order-lg-0 ${open ? "navbar-mobile" : ""}`}
+    >
+      <ul>
+        {navs.map((nav) => (
+          <li key={nav.id}>
+            <a
+              href={pathname === "/" ? `#${nav.target}` : `/#${nav.target}`}
+              className={`nav-link scrollto ${
+                activeTarget === nav.target ? "active" : ""
+              }`}
+              onClick={(event) => {
+                event.preventDefault();
+                handleScrollTo(nav.target);
+              }}
+            >
+              {nav.name}
+            </a>
+          </li>
         ))}
-    </ul>
+      </ul>
 
-    <i 
-    className='bi bi-list mobile-nav-toggle'
-    onClick={handleToggleMenu}
-    ></i>
-
+      <button
+        type="button"
+        className="mobile-nav-toggle"
+        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={open}
+        aria-controls="navbar"
+        onClick={() => setOpen((previous) => !previous)}
+      >
+        <i className={open ? "bi bi-x-lg" : "bi bi-list"} />
+      </button>
     </nav>
-    );
+  );
 }

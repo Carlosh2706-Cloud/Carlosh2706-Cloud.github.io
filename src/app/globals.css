@@ -1,28 +1,43 @@
-/*General*/
+/* General */
 :root {
   --primary-color: #FFF0DB;
   --secondary-color: #eed9c4;
   --accent-color: #D9B99B;
-  /* --background-color:;
-  --text-color:;  */
+
+  --background-color: #1a1814;
+  --text-color: #fff;
+
   --font-heading: var(--font-cinzel-decorative);
+  --font-body: var(--font-cormorant-garamond);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-  font-family: var(--font-cormorant-garamond), serif;
-  background-color: #000;
-  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body), serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 a {
   color: #cda45e;
   text-decoration: none;
-  /* font-family: var(--font-cinzel-decorative); */
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: #d9ba85;
-  text-decoration: none !important;
 }
 
 h1,
@@ -31,20 +46,22 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-cinzel-decorative), serif;
+  font-family: var(--font-heading), serif;
 }
 
-h1 a {
-   font-family: var(--font-cinzel-decorative);
-}
-/*Sections General*/
-
+/* Sections */
 section {
   padding: 60px 0;
   overflow: hidden;
 }
 
 .section-bg {
-  background-color: #1a1814;
+  background-color: var(--background-color);
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  section {
+    padding: 40px 0;
+  }
+}

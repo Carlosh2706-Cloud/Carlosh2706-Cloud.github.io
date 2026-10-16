@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function About2() {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about2">
       <div className="container" data-aos="fade-up">
         <div className="row">
           <div

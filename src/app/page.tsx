@@ -13,8 +13,8 @@ export default function Home() {
       <Hero />
       <main id="main">
         <Hero2 />
-        <About2 />
         <Hero3/>
+        <About2 />
         <About />
         {/* <Gallery/>  */}
         <Contact />

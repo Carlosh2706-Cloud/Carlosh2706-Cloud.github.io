@@ -1,67 +1,187 @@
-/* Book a session */
+/* Book a Session */
 #contact {
   min-height: 400px;
+  padding: clamp(50px, 7vw, 90px) 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-margin-top: 90px;
 }
 
+/* Main layout */
 .contact-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(35px, 6vw, 80px);
+  width: 100%;
 }
 
 .contact-info {
-  flex: 1;
   min-width: 0;
   padding-top: 20px;
 }
 
 .contact-form-wrapper {
-  flex: 1;
+  width: 100%;
   min-width: 0;
   max-width: 600px;
-  width: 100%;
+  justify-self: end;
 }
 
 .contact-form-wrapper h3 {
   margin-bottom: 25px;
+  color: var(--accent-color);
 }
 
+/* Contact details */
 .contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .contact-info i {
-    font-size: 20px;
-    color: #cda45e;
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: 20px;
+  color: var(--accent-color);
 }
 
 .contact-info a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
 
 .contact-info a:hover {
-    text-decoration: underline;
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
+/* Form layout */
 .book-a-table .booking-form {
   width: 100%;
 }
 
 .book-a-table .booking-form .form-group {
-  padding-bottom: 8px;
+  padding-bottom: 14px;
 }
 
-.book-a-table .booking-form .error-group {
+.book-a-table .booking-form input,
+.book-a-table .booking-form textarea,
+.book-a-table .booking-form select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #625b4b;
+  /* border-radius: 4px; */
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 16px;
+  background: #0c0b09;
   color: #fff;
-  background: #cda45e;
-  text-align: left;
-  padding: 15px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.book-a-table .booking-form input,
+.book-a-table .booking-form select {
+  min-height: 48px;
+  padding: 10px 12px;
+}
+
+.book-a-table .booking-form textarea {
+  min-height: 140px;
+  padding: 12px;
+  resize: vertical;
+}
+
+.book-a-table .booking-form input::placeholder,
+.book-a-table .booking-form textarea::placeholder {
+  color: #b6ad9d;
+  opacity: 1;
+}
+
+.book-a-table .booking-form input[type="date"],
+.book-a-table .booking-form input[type="time"] {
+  color: #b6ad9d;
+}
+
+.book-a-table .booking-form input:focus,
+.book-a-table .booking-form textarea:focus,
+.book-a-table .booking-form select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(205 164 94 / 20%);
+}
+
+.book-a-table .booking-form input:focus::placeholder,
+.book-a-table .booking-form textarea:focus::placeholder {
+  color: #d6c6ad;
+}
+
+.book-a-table .booking-form input:disabled,
+.book-a-table .booking-form textarea:disabled,
+.book-a-table .booking-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Date and time picker */
+.book-a-table .booking-form input[type="date"]::-webkit-calendar-picker-indicator,
+.book-a-table .booking-form input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* Submit button */
+.book-a-table .booking-form button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  border: 1px solid var(--accent-color);
+  /* border-radius: 3px; */
+  background: var(--accent-color);
+  color: #1a1814;
+  font-family: inherit;
+  font-size: 16px;
   font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.book-a-table .booking-form button[type="submit"]:hover {
+  background: #d3af71;
+  border-color: #d3af71;
+}
+
+.book-a-table .booking-form button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+.book-a-table .booking-form button[type="submit"]:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Form feedback */
+.book-a-table .booking-form .error-group {
+  padding: 15px;
+  background: #7f2929;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  /* border-radius: 4px; */
 }
 
 .book-a-table .booking-form .error-message br + br {
@@ -69,105 +189,100 @@
 }
 
 .book-a-table .booking-form .sent-message {
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
   padding: 15px;
+  background: #176b45;
+  color: #fff;
+  text-align: center;
   font-weight: 600;
+  /* border-radius: 4px; */
 }
 
 .book-a-table .booking-form .loading {
-  text-align: center;
   padding: 15px;
+  text-align: center;
 }
 
-.book-a-table .booking-form .loading:before {
+.book-a-table .booking-form .loading::before {
   content: "";
   display: inline-block;
-  border-radius: 50%;
   width: 24px;
   height: 24px;
   margin: 0 10px -6px 0;
-  border: 3px solid #cda45e;
-  border-top-color: #1a1814;
-  -webkit-animation: animate-loading 1s linear infinite;
+  border: 3px solid var(--accent-color);
+  border-top-color: transparent;
+  /* border-radius: 50%; */
   animation: animate-loading 1s linear infinite;
 }
 
-.book-a-table .booking-form input,
-.book-a-table .booking-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-  background: #0c0b09;
-  border-color: #625b4b;
-  color: white;
+@keyframes animate-loading {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
-
-.book-a-table .booking-form input[type="date"],
-.book-a-table .booking-form input[type="time"] {
-  color: #a49b89;
-}
-
-.book-a-table .booking-form input::-webkit-input-placeholder,
-.book-a-table .booking-form textarea::-webkit-input-placeholder {
-  color: #a49b89;
-}
-
-.book-a-table .booking-form input::-moz-placeholder,
-.book-a-table .booking-form textarea::-moz-placeholder {
-  color: #a49b89;
-}
-
-.book-a-table .booking-form input::placeholder,
-.book-a-table .booking-form textarea::placeholder {
-  color: #a49b89;
-}
-
-.book-a-table .booking-form input:focus,
-.book-a-table .booking-form textarea:focus {
-  color: #cda45e;
-}
-
-.book-a-table .booking-form input {
-  height: 44px;
-}
-
-.book-a-table .booking-form textarea {
-  padding: 10px 12px;
-}
-
-.book-a-table .booking-form button[type="submit"] {
-  background: #cda45e;
-  border: 0;
-  padding: 10px 35px;
-  color: #fff;
-  transition: 0.4s;
-  /* border-radius: 50px; */
-}
-
-.book-a-table .booking-form button[type="submit"]:hover {
-  background: #d3af71;
-}
-
-/* Mobile and tablet */
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 900px) {
   .contact-layout {
-    flex-direction: column;
     gap: 35px;
   }
+}
 
-  .contact-info,
-  .contact-form-wrapper {
-    width: 100%;
-    max-width: 100%;
+/* Mobile */
+@media (max-width: 768px) {
+  #contact {
+    padding: 50px 0;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
   }
 
   .contact-info {
     padding-top: 0;
+  }
+
+  .contact-form-wrapper {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .contact-form-wrapper h3 {
+    margin-bottom: 20px;
+  }
+
+  .book-a-table .booking-form button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  #contact {
+    padding: 40px 0;
+  }
+
+  .contact-layout {
+    gap: 28px;
+  }
+
+  .contact-info p {
+    gap: 10px;
+    font-size: 15px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .contact-info a,
+  .book-a-table .booking-form input,
+  .book-a-table .booking-form textarea,
+  .book-a-table .booking-form select,
+  .book-a-table .booking-form button[type="submit"] {
+    transition: none;
+  }
+
+  .book-a-table .booking-form .loading::before {
+    animation: none;
   }
 }

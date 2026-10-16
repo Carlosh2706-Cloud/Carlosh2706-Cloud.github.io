@@ -77,9 +77,9 @@ export default function Footer() {
                     </div>
 
                     <div className='col-lg-4 col-md-6 footer-newsletter'>
-                        <h4>Join Our Comunity</h4>
+                        <h4>Be Part of Our Journey</h4>
                         <p>
-                            Helooooooooo
+                            Join us as we grow and nurture meaningful connections.
                         </p>
                         <form action='' method='post'>
                             <input type='email' name='email'/>
