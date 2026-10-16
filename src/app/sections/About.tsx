@@ -36,11 +36,7 @@ export default function About() {
                         </li>
                     </ul> */}
             <p>
-              I offer ground-based Equine Facilitated Wellness focused on
-              grounding, sensory awareness, nervous-system education,
-              present-moment attention, self-regulation skills, connection,
-              choice, and strengths-based reflection through safe, respectful
-              interaction with horses
+              During a session, you’ll be guided through gentle, ground-based activities such as observing horse behaviour, mindful presence, grooming, or walking alongside a horse. Each experience is tailored to your comfort level, offering opportunities to explore communication, personal boundaries, confidence, and self-awareness in a calm, supportive environment. No previous horse experience is needed, and you can pause or step away at any time. Throughout the session, your wellbeing and the horse’s comfort remain the priority.
             </p>
             <Link href={`menu/about`} className="learn-more">
               Learn More

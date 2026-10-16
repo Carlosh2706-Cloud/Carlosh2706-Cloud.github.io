@@ -93,10 +93,12 @@
 .book-a-table .booking-form select {
   min-height: 48px;
   padding: 10px 12px;
+  border-radius: 0;
 }
 
 .book-a-table .booking-form textarea {
   min-height: 140px;
+  border-radius: 0;
   padding: 12px;
   resize: vertical;
 }
@@ -280,6 +282,7 @@
   .book-a-table .booking-form select,
   .book-a-table .booking-form button[type="submit"] {
     transition: none;
+
   }
 
   .book-a-table .booking-form .loading::before {

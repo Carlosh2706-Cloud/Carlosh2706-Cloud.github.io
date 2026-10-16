@@ -126,7 +126,7 @@
 
     padding: 12px;
     border: 1px solid #625b4b;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     box-shadow: none;
 
     background-color: rgba(12, 11, 9, 0.92);
@@ -140,6 +140,7 @@
 
 .subscribe_form_layout .subscribe-form input {
     min-height: 48px;
+    border-radius: 0;
 }
 
 .subscribe_form_layout .subscribe-form textarea {
@@ -177,7 +178,7 @@
     padding: 12px 26px;
 
     border: 1px solid var(--accent-color);
-    border-radius: 3px;
+    /* border-radius: 3px; */
 
     background-color: var(--accent-color);
     color: #1a1814;
@@ -207,7 +208,7 @@
     color: #fff;
     background: #713c32;
     padding: 14px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
 }
 
 .subscribe_form_layout .subscribe-form .sent-message {
@@ -215,7 +216,7 @@
     background: #176b45;
     text-align: center;
     padding: 15px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     font-weight: 600;
 }
 
@@ -233,7 +234,7 @@
 
     border: 3px solid var(--accent-color);
     border-top-color: transparent;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 
     animation: subscribe-loading 0.8s linear infinite;
 }

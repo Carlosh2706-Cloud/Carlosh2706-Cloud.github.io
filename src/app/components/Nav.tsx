@@ -106,6 +106,19 @@ export default function Nav() {
       id="navbar"
       className={`navbar order-last order-lg-0 ${open ? "navbar-mobile" : ""}`}
     >
+      <div className="mobile-nav-logo">
+        {/* <a href="/" aria-label="Grounded in the Willows home">
+          <img
+            src="/assets/images/your-logo.png"
+            alt="Grounded in the Willows"
+          />
+        </a> */}
+
+         <h1 className='className="mobile-nav-logo'>
+                <a href="/">Grounded in the Willows</a>
+        </h1>
+      </div>
+
       <ul>
         {navs.map((nav) => (
           <li key={nav.id}>
@@ -124,6 +137,20 @@ export default function Nav() {
           </li>
         ))}
       </ul>
+
+      <div className="mobile-nav-socials">
+
+        <a href="YOUR_FACEBOOK_URL" aria-label="Facebook">
+          <i className="bi bi-facebook" />
+        </a>
+        <a href="YOUR_INSTAGRAM_URL" aria-label="Instagram">
+          <i className="bi bi-instagram" />
+        </a>
+        <a href="YOUR_FACEBOOK_URL" aria-label="Youtube">
+          <i className="bi bi-youtube" />
+        </a>
+        
+      </div>
 
       <button
         type="button"
